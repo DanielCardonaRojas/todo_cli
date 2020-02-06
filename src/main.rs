@@ -2,11 +2,13 @@ extern crate reqwest;
 extern crate serde;
 
 mod command;
-mod model;
+mod todo_item;
+mod todo_list;
 use command::*;
-use model::*;
 use std::env;
 use std::result::*;
+use todo_item::*;
+use todo_list::*;
 
 fn main() {
     let arguments: Vec<String> = env::args().collect();
@@ -16,7 +18,7 @@ fn main() {
     let response = client
         .get("https://jsonplaceholder.typicode.com/todos")
         .send()
-        .unwrap();
+        .expect("Something wrong fetching data from jsongplaceholder.typicode.com");
 
     let tasks: Vec<TodoItem> = response.json().expect("Couldn't parse todo");
 
