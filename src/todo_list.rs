@@ -18,8 +18,8 @@ impl TodoList {
     }
 
     pub fn print(&self) {
-        for item in &self.tasks {
-            println!("{}", item);
+        for (i, item) in self.tasks.iter().enumerate() {
+            println!("{} - {}", i, item);
         }
     }
 
