@@ -4,6 +4,7 @@ extern crate serde;
 mod command;
 mod todo_item;
 mod todo_list;
+mod data_manager;
 use command::*;
 use serde_json;
 use std::env;
